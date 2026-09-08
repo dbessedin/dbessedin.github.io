@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dmitriy Bessedin — political scientist</title>
+<meta name="description" content="Dmitriy Bessedin studies how AI changes the relationship between citizens and the state in Central Asia. Survey experiments, algorithmic governance, Kazakhstan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1E3A5F;
+    --navy-deep: #162C49;
+    --paper: #F6F5F1;
+    --white: #FFFFFF;
+    --ink: #23272B;
+    --muted: #5D6570;
+    --gold: #C99A3C;
+    --rule: #E3E1DA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, serif;
+    line-height: 1.65;
+  }
+
+  .layout { display: flex; min-height: 100vh; }
+
+  /* ------- identity rail ------- */
+  aside {
+    width: 340px;
+    flex-shrink: 0;
+    background: linear-gradient(175deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: #EDF1F7;
+    padding: 3.2rem 2.4rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .avatar-wrap { position: relative; width: 128px; height: 128px; margin-bottom: 1.6rem; }
+  .avatar-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(201,154,60,.55);
+    border-radius: 50%;
+  }
+  aside img, .avatar-fallback {
+    width: 128px; height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+  .avatar-fallback {
+    display: none;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 128px;
+    text-align: center;
+    font-family: Inter, sans-serif;
+  }
+  aside h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.15; color: var(--white); }
+  .role {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .86rem;
+    font-weight: 500;
+    color: #A8BAD4;
+    margin-top: .7rem;
+    line-height: 1.55;
+  }
+  nav { margin-top: 2.6rem; }
+  nav a {
+    display: block;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .92rem;
+    font-weight: 500;
+    color: #C9D6E8;
+    text-decoration: none;
+    padding: .42rem 0 .42rem .95rem;
+    border-left: 2px solid rgba(255,255,255,.18);
+  }
+  nav a:hover, nav a:focus-visible { color: var(--white); border-left-color: var(--gold); outline: none; }
+  .rail-contact {
+    margin-top: auto;
+    padding-top: 2rem;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .85rem;
+  }
+  .rail-contact a { color: #C9D6E8; text-decoration: none; border-bottom: 1px solid rgba(201,154,60,.5); }
+  .rail-contact a:hover { color: var(--white); border-bottom-color: var(--gold); }
+  .rail-contact p { margin-bottom: .55rem; }
+
+  /* ------- content ------- */
+  main { flex: 1; min-width: 0; }
+  .inner { max-width: 46rem; margin: 0 auto; padding: 4.2rem 3.4rem 5rem; }
+
+  .hero {
+    font-size: 2.15rem;
+    line-height: 1.28;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--navy-deep);
+    margin-bottom: .9rem;
+  }
+  .hero strong { font-weight: 700; font-style: italic; color: var(--navy); }
+  .hero-note {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .84rem;
+    color: var(--muted);
+    padding-bottom: 2.6rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2.8rem;
+  }
+
+  h2 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: var(--gold);
+    margin: 2.7rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+  h2::after { content: ""; height: 1px; background: var(--rule); flex: 1; }
+  section p { margin-bottom: 1rem; max-width: 64ch; font-size: 1.06rem; }
+
+  .wip { list-style: none; }
+  .wip li {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--navy);
+    padding: 1.05rem 1.3rem;
+    margin-bottom: .9rem;
+  }
+  .wip li em { display: block; font-size: 1.05rem; }
+  .wip li span {
+    display: block;
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: .3rem;
+  }
+
+  .cv-link {
+    display: inline-block;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--navy);
+    text-decoration: none;
+    padding: .65rem 1.25rem;
+    margin-top: .4rem;
+  }
+  .cv-link:hover, .cv-link:focus-visible { background: var(--navy-deep); outline: none; }
+
+  .cv-embed {
+    width: 100%;
+    height: 620px;
+    border: 1px solid var(--rule);
+    background: var(--white);
+    display: block;
+  }
+  .cv-embed p { padding: 1.2rem; color: var(--muted); font-family: Inter, system-ui, sans-serif; font-size: .9rem; }
+  .cv-actions { margin-top: .9rem; display: flex; gap: .7rem; flex-wrap: wrap; }
+  .cv-link-secondary {
+    background: transparent;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+  }
+  .cv-link-secondary:hover, .cv-link-secondary:focus-visible { background: var(--navy); color: var(--white); }
+  @media (max-width: 860px) { .cv-embed { height: 420px; } }
+
+  footer {
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: 4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ------- mobile ------- */
+  @media (max-width: 860px) {
+    .layout { display: block; }
+    aside { position: static; width: 100%; height: auto; padding: 2.4rem 1.4rem; }
+    .rail-contact { margin-top: 1.6rem; padding-top: 0; }
+    nav { display: none; }
+    .inner { padding: 2.6rem 1.4rem 3.5rem; }
+    .hero { font-size: 1.55rem; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <div class="avatar-wrap">
+      <img src="photo.jpg"
+           alt="Dmitriy Bessedin"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <div class="avatar-fallback">DB</div>
+    </div>
+    <h1>Dmitriy Bessedin</h1>
+    <p class="role">Political scientist. I study how AI changes the relationship between citizens and the state in Central Asia.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#progress">In progress</a>
+      <a href="#cv">Curriculum vitae</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="rail-contact">
+      <p><a href="mailto:dmitriy.bessedin@nu.edu.kz">dmitriy.bessedin@nu.edu.kz</a></p>
+      <p>Nazarbayev University, MA 2025</p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="inner">
+
+      <p class="hero">Where the official behind the counter is seen as a corruption risk, an algorithm that says no may make the state look <strong>fairer, not colder</strong>.</p>
+      <p class="hero-note">The working hypothesis of my research programme on the algorithmic state, September 2026</p>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>I hold an MA in Political Science and International Relations from Nazarbayev University (2025, graduated with honors). My quantitative thesis surveyed 235 Kazakhstani students on public service careers and ran the first Central Asian application of the international public service motivation scale.</p>
+        <p>I work as a technical writer at an AI company, where I document agentic AI systems in production. Spending my days inside these systems is what convinced me they deserve study from the citizen's side of the counter.</p>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <p>Kazakhstan adopted the first comprehensive AI law in Central Asia in late 2025. Citizens now hold a legal right to know when an algorithm shaped a decision about them, to demand an explanation, and to object. Whether anyone trusts the algorithmic state enough to use those rights is an open question, and the behavioral literature cannot answer it: algorithm aversion research was built almost entirely on Western samples, where the human official is the trusted default.</p>
+        <p>In much of the post-Soviet space the default is different. The human at the counter has long been associated with petty corruption, and digital services earned public support precisely by removing that human. My research programme tests whether this context inverts the Western canon, and what it means when a state can borrow legitimacy from the machines it deploys.</p>
+        <p>The empirical core is a pair of preregistered studies in Kazakhstan: a survey experiment on how citizens judge unfavourable government decisions made by officials, algorithms, and the hybrid the state actually runs, and a performance-based study of whether the officials who sign algorithmic recommendations can detect errors in them.</p>
+      </section>
+
+      <section id="progress">
+        <h2>In progress</h2>
+        <ul class="wip">
+          <li>
+            <em>From Aspiration to Competence: The Portrait of the Young Civil Servant in Kazakhstan</em>
+            <span>Article based on the MA thesis, in preparation for the NISPAcee Journal of Public Administration and Policy</span>
+          </li>
+          <li>
+            <em>The algorithmic state in Central Asia</em>
+            <span>Doctoral research programme in development: citizen trust, evaluative AI literacy of officials, and the right to object</span>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Beyond research</h2>
+        <p>I build data pipelines in Python. The most recent is a football analytics platform with automated data collection and predictive modelling of player performance, which doubles as my testing ground for the tooling I later use in research.</p>
+      </section>
+
+      <section id="cv">
+        <h2>Curriculum vitae</h2>
+        <object class="cv-embed" data="cv.pdf#toolbar=0&navpanes=0" type="application/pdf">
+          <p>Your browser does not display PDF inline. Use the buttons below.</p>
+        </object>
+        <div class="cv-actions">
+          <a class="cv-link" href="cv.pdf" target="_blank" rel="noopener">Open full screen</a>
+          <a class="cv-link cv-link-secondary" href="cv.pdf" download="Bessedin_CV.pdf">Download PDF</a>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>The fastest way to reach me is email: dmitriy.bessedin@nu.edu.kz</p>
+      </section>
+
+      <footer>Dmitriy Bessedin, 2026</footer>
+
+    </div>
+  </main>
+
+</div>
+</body>
+</html>
